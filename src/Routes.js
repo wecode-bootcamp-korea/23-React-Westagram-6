@@ -1,17 +1,17 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // yeeun's 컴포넌트
-import Login from "./pages/yeeun/Login/Login";
-import Main from "./pages/yeeun/Main/Main";
+import Login from './pages/yeeun/Login/Login';
+import Main from './pages/yeeun/Main/Main';
 
 // moonsil's 컴포넌트
-import LoginM from "./pages/moonsil/Login/Login";
-import MainM from "./pages/moonsil/Main/Main";
+import LoginM from './pages/moonsil/Login/Login';
+import MainM from './pages/moonsil/Main/Main';
 
 // juyoung's 컴포넌트
-import LoginJ from "./pages/juyoung/Login/Login";
-import MainJ from "./pages/juyoung/Main/Main";
+import LoginJ from './pages/juyoung/Login/Login';
+import MainJ from './pages/juyoung/Main/Main';
 
 class Routes extends React.Component {
   render() {
