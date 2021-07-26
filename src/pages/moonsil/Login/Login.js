@@ -3,6 +3,23 @@ import { Link } from 'react-router-dom'; // 링크 불러오는 방법
 import './Login.scss'; //sass랑 css파일은 이름을 붙여주지 않아도 된다.
 
 class Login extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: '',
+      pw: '',
+    };
+  }
+  handleIdInput = e => {
+    this.setState({
+      id: e.target.value,
+    });
+  };
+  handlePwInput = e => {
+    this.setState({
+      pw: e.target.value,
+    });
+  };
   render() {
     return (
       <div className="Login">
@@ -14,11 +31,17 @@ class Login extends React.Component {
           <main>
             <form className="loginForm">
               <input
+                onChange={this.handleIdInput}
                 id="forId"
                 type="text"
                 placeholder="전화번호, 사용자 이름 또는 이메일"
               />
-              <input id="forPw" type="password" placeholder="비밀번호" />
+              <input
+                onChange={this.handlePwInput}
+                id="forPw"
+                type="password"
+                placeholder="비밀번호"
+              />
               <Link
                 to="/main"
                 id="loginButton"
