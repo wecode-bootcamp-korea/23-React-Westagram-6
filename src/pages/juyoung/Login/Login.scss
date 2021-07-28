@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .loginDisplay {
+    border: 2px solid #e6e6e6;
+    height: 70%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .title {
+      font-family: 'Lobster', cursive;
+      font-size: 80px;
+      margin-top: 15px;
+    }
+
+    .inputWrap {
+      padding: 30px;
+
+      #inputWrapId,
+      #inputWrapPassword {
+        padding-left: 10px;
+        font-weight: 700;
+        color: #c5c5c5;
+        letter-spacing: 3px;
+        display: block;
+        width: 346px;
+        height: 50px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        background-color: #fafafa;
+        border: 1px solid #e6e6e6;
+      }
+
+      .btnActive {
+        margin-bottom: 15px;
+        background-color: #0095f6;
+        color: white;
+        font-size: 20px;
+        font-weight: 900;
+        width: 346px;
+        height: 50px;
+        border: 0px;
+        transition: all 0.2s;
+        opacity: 1;
+      }
+
+      .btnDisabled {
+        margin-bottom: 15px;
+        background-color: #0095f6;
+        color: white;
+        font-size: 20px;
+        font-weight: 900;
+        width: 346px;
+        height: 50px;
+        border: 0px;
+        transition: all 0.2s;
+        opacity: 0.5;
+      }
+    }
+
+    a {
+      text-decoration-line: none;
+      color: #366088;
+      margin-bottom: 30px;
+      font-weight: 900;
+      padding: 0px;
+      font-size: 15px;
+
+      &:hover {
+        color: #366088;
+      }
+    }
+  }
+}
