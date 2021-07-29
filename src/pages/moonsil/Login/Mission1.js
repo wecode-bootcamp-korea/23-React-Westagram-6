@@ -8,18 +8,22 @@ class Login extends React.Component {
     this.state = {
       id: '',
       pw: '',
+      idCondition: '',
+      pwCondition: '',
     };
   }
 
   handleIdInput = e => {
     this.setState({
       id: e.target.value,
+      idCondition: this.state.id.indexOf('@') !== -1,
     });
   };
 
   handlePwInput = e => {
     this.setState({
       pw: e.target.value,
+      pwCondition: this.state.pw.length >= 5,
     });
   };
 
@@ -52,6 +56,11 @@ class Login extends React.Component {
               <button
                 onClick={this.goToMain}
                 id="loginButton"
+                style={
+                  this.state.idCondition && this.state.pwCondition
+                    ? { opacity: '100%' }
+                    : { opacity: '50%' }
+                }
                 className="loginButton-nonactive"
               >
                 로그인
