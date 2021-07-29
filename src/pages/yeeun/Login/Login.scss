@@ -45,11 +45,16 @@
         #loginBtn {
           width: 258px;
           height: 36px;
+          color: white;
           background-color: #0095f6;
-          opacity: 0.5;
           border: none;
           border-radius: 5px;
           margin-bottom: 10px;
+        }
+
+        :disabled {
+          background-color: #0095f6;
+          opacity: 0.5;
         }
       }
 

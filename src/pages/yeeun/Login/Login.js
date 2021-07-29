@@ -49,7 +49,13 @@ class Login extends React.Component {
                 placeholder="비밀번호"
                 onChange={this.handlePwInput}
               />
-              <button id="loginBtn" onClick={this.goToMain}>
+              <button
+                id="loginBtn"
+                onClick={this.goToMain}
+                disabled={
+                  !(this.state.id.includes('@') && this.state.pw.length >= 5)
+                }
+              >
                 로그인
               </button>
             </div>
