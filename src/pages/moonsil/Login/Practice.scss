@@ -66,15 +66,10 @@ body {
             margin-top: 5px;
             border: 1px solid transparent;
             color: white;
-            background-color: #0095f6;
-
+            // background-color: #0467a8; 해당 색상은 Login.js에서 조건 충족시 변하는 색상들 지정하여서 여기에선 주석처리함
             text-decoration: none;
             cursor: pointer;
           }
-
-          // .loginButton-active {
-          //   background-color: #0095f6;
-          // }
         }
       }
 

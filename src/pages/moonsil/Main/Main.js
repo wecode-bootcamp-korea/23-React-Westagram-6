@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Main.scss';
 import { withRouter } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ class Main extends React.Component {
             <div className="navIcons">
               <div className="expolreIcon">
                 <img
-                  src="/images/explore.png"
+                  src="./images/moonsil/explore.png"
                   alt="돋보기"
                   width="22"
                   height="22"
@@ -27,7 +27,7 @@ class Main extends React.Component {
               </div>
               <div className="heartIcon">
                 <img
-                  src="/images/heart.png"
+                  src="./images/moonsil/heart.png"
                   alt="하트"
                   width="22"
                   height="22"
@@ -35,7 +35,7 @@ class Main extends React.Component {
               </div>
               <div className="profileIcon">
                 <img
-                  src="/images/profile.png"
+                  src="./images/moonsil/profile.png"
                   alt="사람"
                   width="22"
                   height="22"
@@ -53,14 +53,14 @@ class Main extends React.Component {
                   <div className="firstStory">
                     <img
                       className="storyBackground"
-                      src="/images/instagram.png"
+                      src="./images/moonsil/instagram.png"
                       alt="The first updated new story"
                       width="64px;"
                       height="64px;"
                     />
                     <img
                       className="firstPerson"
-                      src="/images/firstSuggsetion.jpeg"
+                      src="./images/moonsil/firstSuggsetion.jpeg"
                       alt="the first person updating story"
                       width="57px;"
                       height="57px;"
@@ -69,14 +69,14 @@ class Main extends React.Component {
                   <div className="secondStory">
                     <img
                       className="storyBackground"
-                      src="/images/instagram.png"
+                      src="./images/moonsil/instagram.png"
                       alt="The second updatedNew new story"
                       width="64px;"
                       height="64px;"
                     />
                     <img
                       className="secondPerson"
-                      src="/images/secondSuggestion.jpeg"
+                      src="./images/moonsil/secondSuggestion.jpeg"
                       alt="the second person updating story"
                       width="57px;"
                       height="57px;"
@@ -85,14 +85,14 @@ class Main extends React.Component {
                   <div className="thirdStory">
                     <img
                       className="storyBackground"
-                      src="/images/instagram.png"
+                      src="./images/moonsil/instagram.png"
                       alt="The second updatedNew new story"
                       width="64px;"
                       height="64px;"
                     />
                     <img
                       className="thirdPerson"
-                      src="/images/thirdSuggestion.jpeg"
+                      src="./images/moonsil/thirdSuggestion.jpeg"
                       alt="The third person updating story"
                       width="57px;"
                       height="57px;"
@@ -111,7 +111,7 @@ class Main extends React.Component {
                   <div className="postHeader">
                     <div className="userIdOnPost">
                       <img
-                        src="/images/accountpicture.jpeg"
+                        src="./images/moonsil/accountpicture.jpeg"
                         alt="계정 소유자 사진"
                         width="40px"
                         height="40px"
@@ -121,7 +121,7 @@ class Main extends React.Component {
 
                     <div className="seeMore">
                       <img
-                        src="/images/dots.png"
+                        src="./images/moonsil/dots.png"
                         alt="계정 소유자 사진"
                         width="20px"
                         height="20px"
@@ -130,7 +130,7 @@ class Main extends React.Component {
                   </div>
                 </header>
                 <img
-                  src="/images/doggy.jpeg"
+                  src="./images/moonsil/doggy.jpeg"
                   alt="귀염둥이 강아지"
                   width="100%"
                 />
@@ -139,19 +139,19 @@ class Main extends React.Component {
                     <div className="reponseFromFollowers">
                       <div className="iconsForResponse">
                         <img
-                          src="/images/heart.png"
+                          src="./images/moonsil/heart.png"
                           alt="좋아요"
                           width="30px"
                           height="30px"
                         />
                         <img
-                          src="/images/speech-bubble.png"
+                          src="./images/moonsil/speech-bubble.png"
                           alt="코멘트"
                           width="30px"
                           height="30px"
                         />
                         <img
-                          src="/images/paper-plane.png"
+                          src="./images/moonsil/paper-plane.png"
                           alt="공유하기"
                           width="30px"
                           height="30px"
@@ -159,7 +159,7 @@ class Main extends React.Component {
                       </div>
                       <div className="savePhoto">
                         <img
-                          src="/images/bookmark.png"
+                          src="./images/moonsil/bookmark.png"
                           alt="책갈피"
                           width="30px"
                           height="30px"
@@ -193,9 +193,7 @@ class Main extends React.Component {
                           type="text"
                           placeholder="댓글 달기..."
                         />
-                        <button id="submitButton" onClick={this.goToLogin}>
-                          게시
-                        </button>
+                        <button id="submitButton">게시</button>
                       </div>
                     </div>
                   </div>
@@ -208,7 +206,7 @@ class Main extends React.Component {
                 <aside>
                   <div className="myAccountClickButton">
                     <img
-                      src="/images/accountpicture.jpeg"
+                      src="./images/moonsil/accountpicture.jpeg"
                       alt="계정 소유자 사진"
                       width="50px"
                       height="50px"
@@ -228,7 +226,7 @@ class Main extends React.Component {
                     <div className="firstSuggestion">
                       <div className="wrappingFirstSuggestion">
                         <img
-                          src="/images/firstSuggsetion.jpeg"
+                          src="./images/moonsil/firstSuggsetion.jpeg"
                           alt="influencer"
                           width="40px"
                           height="40px"
@@ -245,7 +243,7 @@ class Main extends React.Component {
                     <div className="secondSuggestion">
                       <div className="wrappingSecondSuggestion">
                         <img
-                          src="/images/secondSuggestion.jpeg"
+                          src="./images/moonsil/secondSuggestion.jpeg"
                           alt="influencer"
                           width="40px"
                           height="40px"
@@ -262,7 +260,7 @@ class Main extends React.Component {
                     <div className="thirdSuggestion">
                       <div className="wrappingThirdSuggestion">
                         <img
-                          src="/images/thirdSuggestion.jpeg"
+                          src="./images/moonsil/thirdSuggestion.jpeg"
                           alt="influencer"
                           width="40px"
                           height="40px"

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // 링크 불러오는 방법
 import './Login.scss'; //sass랑 css파일은 이름을 붙여주지 않아도 된다.
+import { withRouter } from 'react-router-dom';
 
 class Login extends React.Component {
   constructor(props) {
@@ -8,18 +8,29 @@ class Login extends React.Component {
     this.state = {
       id: '',
       pw: '',
+      idCondition: '',
+      pwCondition: '',
     };
   }
+
   handleIdInput = e => {
     this.setState({
       id: e.target.value,
+      idCondition: this.state.id.indexOf('@') !== -1,
     });
   };
+
   handlePwInput = e => {
     this.setState({
       pw: e.target.value,
+      pwCondition: this.state.pw.length >= 5,
     });
   };
+
+  goToMain = () => {
+    this.props.history.push('/Main-Moonsil');
+  };
+
   render() {
     return (
       <div className="Login">
@@ -42,14 +53,18 @@ class Login extends React.Component {
                 type="password"
                 placeholder="비밀번호"
               />
-              <Link
-                to="/main"
+              <button
+                onClick={this.goToMain}
                 id="loginButton"
+                style={
+                  this.state.idCondition && this.state.pwCondition
+                    ? { opacity: '100%' }
+                    : { opacity: '50%' }
+                }
                 className="loginButton-nonactive"
               >
                 로그인
-              </Link>
-              {/* 내가 있는 곳의 반대 방향의  path넣기 */}
+              </button>
             </form>
           </main>
 
@@ -64,4 +79,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

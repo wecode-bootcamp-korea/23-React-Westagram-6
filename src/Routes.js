@@ -8,6 +8,7 @@ import Main from './pages/yeeun/Main/Main';
 // moonsil's 컴포넌트
 import LoginM from './pages/moonsil/Login/Login';
 import MainM from './pages/moonsil/Main/Main';
+import Practice from './pages/moonsil/Login/Practice';
 
 // juyoung's 컴포넌트
 import LoginJ from './pages/juyoung/Login/Login';
@@ -23,6 +24,7 @@ class Routes extends React.Component {
 
           <Route exact path="/Login-Moonsil" component={LoginM} />
           <Route exact path="/Main-Moonsil" component={MainM} />
+          <Route exact path="/LoginwBE-Moonsil" component={Practice} />
 
           <Route exact path="/Login-Juyoung" component={LoginJ} />
           <Route exact path="/Main-Juyoung" component={MainJ} />
