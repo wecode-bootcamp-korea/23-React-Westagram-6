@@ -2,7 +2,50 @@ import React from "react";
 import "./Main.scss"
 
 class Main extends React.Component{
+    
+  constructor() {
+    super();
+    this.state = {
+      commentValue: '',
+      commentList: [],
+      ative : false,
+      value : '',
+    };
+  }
+  
+  handleCommentInput = e => {
+    console.log(e.target);
+    this.setState({
+      commentValue: e.target.value,
+      value: e.target.value,   
+    });
+  };
+  
+  addComment = () => {
+    const { commentList, commentValue } = this.state; //구조 분해 할당
+    this.setState({
+      commentList: commentList.concat([commentValue]),
+      commentValue: '',
+      value: '',
+    });
+  
+  }
+  
+
+  changeColor = () => {
+    if (this.state.commentValue.length > 1) {
+      this.state.ative = true;
+
+    } else {
+      this.state.ative = false;
+    } 
+  }
+  
     render(){
+     
+      console.log(this.state.commentValue)
+      console.log(this.state.commentList)
+      
         return(
           <>
           <nav className="Main">
@@ -52,6 +95,12 @@ class Main extends React.Component{
                       <span className="name">canon_mj</span>
                       <span>위워크에서 진행한 베이킹 클레스... 더 보기</span>
                     </li>
+                    {this.state.commentList.map((commentlement, idx) => {     
+                      return <li key={idx}>
+                        <span className="name">canon_mj</span>
+                        <span>{commentlement}</span>
+                        </li>;
+                    })}
                   </ul>
                   <div className="comment">
                     <span>42분 전</span>
@@ -60,8 +109,19 @@ class Main extends React.Component{
                 </div> 
                 
                 <div className="input">
-                  <input type="text" id='inputText' placeholder="댓글달기"/>
-                  <button id='inputButton'>게시</button>
+                  <input 
+                  type="text" 
+                  id='inputText' 
+                  placeholder="댓글달기"
+                  onChange= {this.handleCommentInput}
+                  onKeyUp= {this.changeColor}
+                  value= {this.state.value} 
+                  />
+                  <button className = {'btn' + (this.state.ative ? 'Ative' : 'Disabled')}
+                  id='inputButton'
+                  onClick={this.addComment}
+                  
+                  >게시</button>
                 </div>
         
               </article>
@@ -126,7 +186,7 @@ class Main extends React.Component{
           </main>
           </>
         );
-    }
-}
+    };
 
+  }
 export default Main;

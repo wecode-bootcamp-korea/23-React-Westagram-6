@@ -53,17 +53,17 @@ class Login extends React.Component{
                 <h1 className="title">westagram</h1>
                 <form className="inputWrap">
                   <input type="text"
-                   id="inputWrapId" 
-                   placeholder="전화번호, 사용자 이름 또는 이메일"
-                   onChange = {this.handleIdInput}
-                   onKeyUp = {this.changeButton}  
+                    id="inputWrapId" 
+                    placeholder="전화번호, 사용자 이름 또는 이메일"
+                    onChange = {this.handleIdInput}
+                    onKeyUp = {this.changeButton}  
                    />
                   <input type="password"
-                   id="inputWrapPassword"
+                    id="inputWrapPassword"
                     placeholder="비밀번호"
                     onChange = {this.handlePasswordInput}
                     onKeyUp = {this.changeButton}  
-                    />
+                  />
                   <button onClick = {this.goToMain}
                    id="inputWrapButton"
                    className = {'btn' + (this.state.active ? 'Active' : 'Disabled')}

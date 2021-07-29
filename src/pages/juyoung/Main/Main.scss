@@ -179,7 +179,27 @@ li {
         }   
       }
 
-      button {
+      // button {
+      //   color: #1da0f6;
+      //   background-color: #ffffff;
+      //   border: none;
+      //   font-weight: bold;
+      //   margin-right: 15px;
+      //   opacity: 0.5;
+      //   cursor: pointer;
+      // }
+
+      .btnAtive {
+        color: #1da0f6;
+        background-color: #ffffff;
+        border: none;
+        font-weight: bold;
+        margin-right: 15px;
+        opacity: 1;
+        cursor: pointer;
+      }
+
+      .btnDisabled {
         color: #1da0f6;
         background-color: #ffffff;
         border: none;
@@ -188,6 +208,7 @@ li {
         opacity: 0.5;
         cursor: pointer;
       }
+
     }
   }
 
