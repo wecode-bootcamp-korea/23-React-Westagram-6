@@ -1,0 +1,195 @@
+.main {
+  body {
+    background-color: #dbdbdb;
+    height: 100%;
+  }
+
+  main .container {
+    background-color: white;
+  }
+
+  @mixin aTagStyle {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+
+  @mixin profileImageStyle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 5px;
+  }
+
+  header .navContainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+    background-color: white;
+    border: 1px solid #dbdbdb;
+
+    h1 {
+      font-family: 'Lobster', cursive;
+      font-size: 20px;
+      font-weight: lighter;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-left: 10px;
+      margin-left: 10px;
+      border-left: 1px solid #dbdbdb;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      margin-left: 10px;
+    }
+
+    .navLogo {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .searchingBarContainer {
+      position: relative;
+
+      .searchingBar {
+        border: 1px solid #dbdbdb;
+        padding-left: 10px;
+
+        &::placeholder {
+          padding-left: 20px;
+        }
+      }
+    }
+    .searchingIcon {
+      position: absolute;
+      left: 10px;
+      top: 1px;
+
+      .fa-search {
+        color: #dbdbdb;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+    background-color: white;
+    border: 1px solid #dbdbdb;
+
+    .feedHeader {
+      background-color: white;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+
+      .feedProfile {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .profilePicture {
+          @include profileImageStyle;
+        }
+
+        .feedOwner {
+          @include aTagStyle;
+        }
+      }
+
+      .fa-ellipsis-h {
+        padding-right: 10px;
+      }
+    }
+
+    .contentImg {
+      width: 100%;
+      height: 760px;
+    }
+
+    .feedNav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      i {
+        padding: 5px 5px 5px 5px;
+        font-size: 20px;
+      }
+    }
+
+    a {
+      @include aTagStyle;
+    }
+
+    .commentBox {
+      border: 1px solid #dbdbdb;
+      width: 600px;
+    }
+
+    .mainRight {
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: baseline;
+      background-color: white;
+      border: 1px solid #dbdbdb;
+      margin: 10px;
+      margin-top: 10px;
+
+      img {
+        @include profileImageStyle;
+      }
+
+      .sideProfile {
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .followBtn {
+          color: #0095f6;
+        }
+      }
+
+      ul {
+        list-style: none;
+
+        .bottomList {
+          float: left;
+          padding: 3px;
+          color: #dbdbdb;
+          font-size: 10px;
+        }
+      }
+
+      .copyright {
+        text-align: center;
+        color: #dbdbdb;
+      }
+    }
+  }
+}
