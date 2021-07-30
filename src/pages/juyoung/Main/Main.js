@@ -139,12 +139,14 @@ class Main extends React.Component{
                 
                 {DATA_LIST.map(comment => { 
                   return (
-	                  <Side
-									    name={comment.userName}
-	                    comment={comment.content} 
-                    />
+                    <Side
+                      name={comment.userName}
+                      comment={comment.content}
+                      />
                   );
-                })}       
+                  })} 
+          
+
                 <div className="authorization">
                   <p>instagram 정보·지원·홍보 센터·API·<br/>
                   채용정보·개인정보처리방침·약관·<br/>
