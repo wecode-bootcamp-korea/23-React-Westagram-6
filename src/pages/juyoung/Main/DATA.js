@@ -8,7 +8,7 @@ const DATA_LIST = [
   {
     id : 2,
     userName : 'khjo_91',
-    content : 'brent_Kim_님이 팔로우합니다',
+    content : 'brent_Kim_님이 팔로우합니다.',
   }, 
     
   {
@@ -20,7 +20,7 @@ const DATA_LIST = [
   {
     id : 4,
     userName : 'attyhelory',
-    content : 'giv_meee님 외 1명이 팔로우 합니다.',
+    content : 'giv_meee님 외 1명이 팔로우 합니다',
   }
     
 ];
