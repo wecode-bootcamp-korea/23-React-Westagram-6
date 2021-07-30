@@ -1,5 +1,8 @@
 import React from "react";
 import "./Main.scss"
+import DATA_LIST from "./DATA";
+import Side from "./Side";
+
 
 class Main extends React.Component{
     
@@ -14,7 +17,6 @@ class Main extends React.Component{
   }
   
   handleCommentInput = e => {
-    console.log(e.target);
     this.setState({
       commentValue: e.target.value,
       value: e.target.value,   
@@ -43,10 +45,7 @@ class Main extends React.Component{
   
     render(){
      
-      console.log(this.state.commentValue)
-      console.log(this.state.commentList)
-      
-        return(
+      return(
           <>
           <nav className="Main">
             <ul className="list">
@@ -65,6 +64,7 @@ class Main extends React.Component{
               <div className="header">
                 <img src="/images/wecode.jpg" alt="wecodelog" className="circle"/>
                 <span>travelholic_insta</span>
+                <side />
               </div>
         
               <div className="feedImage"><img src="/images/moon.jpg" alt="mainPicture" className="picture"/> </div>
@@ -137,42 +137,14 @@ class Main extends React.Component{
         
                 <div className="recommend"><span>회원님을 위한 추천</span><a href="#">모두보기</a></div>
                 
-                <div className="bottom">
-                    <img src="/images/wecode.jpg" alt="wecodelog" className="circle"/>
-                    <div className="idWrap">
-                      <span className="commentId">eun_hinn</span>
-                      <span className="commentContent">mj_thewildboar님 외 1명이 팔로우</span>
-                    </div>
-                    <span className="follow">팔로우</span>
-                </div>
-        
-                <div className="bottom">
-                    <img src="/images/wecode.jpg" alt="wecodelog" className="circle"/>
-                    <div className="idWrap">
-                      <span className="commentId">khjo_91</span>
-                      <span className="commentContent">brent_Kim_님이 팔로우합니다</span>
-                    </div>
-                    <span className="follow">팔로우</span>
-                </div>
-        
-                <div className="bottom">
-                    <img src="/images/wecode.jpg" alt="wecodelog" className="circle"/>
-                    <div className="idWrap">
-                      <span className="commentId">elephant5288</span>
-                      <span className="commentContent">no_ans_cs님이 팔로우 합니다.</span>
-                    </div>
-                    <span className="follow">팔로우</span>
-                </div>
-        
-                <div className="bottom">
-                    <img src="/images/wecode.jpg" alt="wecodelog" className="circle"/>
-                    <div className="idWrap">
-                      <span className="commentId">attyhelory</span>
-                      <span className="commentContent">giv_meee님 외 1명이 팔로우 합니다.</span>
-                    </div>
-                    <span className="follow">팔로우</span>
-                </div>
-                
+                {DATA_LIST.map(comment => { 
+                  return (
+	                  <Side
+									    name={comment.userName}
+	                    comment={comment.content} 
+                    />
+                  );
+                })}       
                 <div className="authorization">
                   <p>instagram 정보·지원·홍보 센터·API·<br/>
                   채용정보·개인정보처리방침·약관·<br/>

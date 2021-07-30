@@ -1,73 +1,55 @@
 import React from 'react';
 import "./Login.scss";
-import { Link, withRouter } from 'react-router-dom' ;
+
 
 
 class Login extends React.Component{
     
-    goToMain = () => {
-       this.props.history.push('/Main-Juyoung');
-    }
-
     constructor(props){
       super(props);
         this.state = {
           id : '',
-          pw : '',
-          active : false,
+          pw : '',      
 
         };
     }
 
-    handleIdInput = (e) => {
-      console.log(e.target.value);
+    goToMain = () => {
+      this.props.history.push('/Main-Juyoung');
+   }
+
+
+    handleInput = (e) => {
       this.setState({
-        id : e.target.value,
+        [e.target.name] : e.target.value,
       });
     };
 
-
-    handlePasswordInput = (e) => {
-      console.log(e.target.value);
-      this.setState({
-        pw : e.target.value,        
-      })
-    }
-
-    changeButton = () => {
-        if (this.state.id.indexOf('@') && this.state.pw.length > 5 ) {
-          this.setState({ active : true })
-        } else {
-          this.setState({ active : false })
-        }
-    };
-
-
-
     render(){
-      console.log('id',this.state.id)
-      console.log('pw',this.state.pw)
-        return (
+      console.log(this.state.id.indexOf('@'))
+      return (
             <main className="Login">
               <div className="loginDisplay">
                 <h1 className="title">westagram</h1>
                 <form className="inputWrap">
                   <input type="text"
                     id="inputWrapId" 
+                    name = 'id'
                     placeholder="전화번호, 사용자 이름 또는 이메일"
-                    onChange = {this.handleIdInput}
+                    onChange = {this.handleInput}
                     onKeyUp = {this.changeButton}  
                    />
                   <input type="password"
                     id="inputWrapPassword"
+                    name = 'pw'
                     placeholder="비밀번호"
-                    onChange = {this.handlePasswordInput}
+                    onChange = {this.handleInput}
                     onKeyUp = {this.changeButton}  
                   />
                   <button onClick = {this.goToMain}
                    id="inputWrapButton"
-                   className = {'btn' + (this.state.active ? 'Active' : 'Disabled')}
-                   disabled = { this.state.id.indexOf('@') && this.state.pw.length > 5 ? false : true}
+                   className = { (this.state.id.indexOf('@') !== -1) && this.state.pw.length > 5 ? 'btnActive' : 'btnDisabled'}
+                   disabled = { (this.state.id.indexOf('@') !== -1) && this.state.pw.length > 5 ? false : true }
                    >로그인</button>
                 </form>
                 <a href="#" className="bottom">비밀번호를 잊으셨나요?</a>
@@ -82,4 +64,4 @@ class Login extends React.Component{
 }
 
 
-export default withRouter(Login);
+export default Login;
