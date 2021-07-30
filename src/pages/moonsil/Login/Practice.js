@@ -1,7 +1,3 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom'; // 링크 불러오는 방법
-// import './Login.scss'; //sass랑 css파일은 이름을 붙여주지 않아도 된다.
-
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './Login.scss';
@@ -30,8 +26,11 @@ class Practice extends React.Component {
 
   //fetch는 두개의 인자를 갖는다. 첫번째는  aip주소, 두번째는 method와 body이다
   handleFetch = () => {
+    console.log(this.state.id);
+    console.log(this.state.pw);
+
     //setState를 넣지 않는 이유는 아이디/비번 등 개인정보는 저장할필요가 없기 때문이다
-    fetch('http://10.58.0.181:8000/users/signin', {
+    fetch('http://10.58.3.160:8000/users/signin', {
       //signup or singin으로 가입이나 로그인 정할 수 있다.
       method: 'POST',
       body: JSON.stringify({
@@ -51,18 +50,6 @@ class Practice extends React.Component {
         // }
       );
   };
-  // SignUp = e => {
-  //   fetch('10.58.1.112:8000/users/signup',{
-  //     method: 'POST',
-  //     body: JSON.stringify({        //이 부분 주석처리한 이유: 굳이 fetch2개 만들어서 최적화에 영향끼치 않기위해!
-  //       email:this.setState.id,     //왜 가입하는데 여기에 빈값으로 안들어가는지 궁금한가? 그 이유는 여기에 입력한 값이
-  //       password: this.setState.pw, // 로그인이 되지 않는 값이라면 , 가입이 되도록 바로 만들었기 때문이다.
-  //     })
-  //   })
-  //   .then(res => res.json())
-  //   .then(data => {console.log('signup success')})
-
-  // }
 
   render() {
     return (
@@ -75,13 +62,13 @@ class Practice extends React.Component {
           <main>
             <form className="loginForm">
               <input
-                onChange={this.setState.idInput}
+                onChange={this.idInput}
                 id="forId"
                 type="text"
                 placeholder="전화번호, 사용자 이름 또는 이메일"
               />
               <input
-                onChange={this.setState.pwInput}
+                onChange={this.pwInput}
                 id="forPw"
                 type="password"
                 placeholder="비밀번호"

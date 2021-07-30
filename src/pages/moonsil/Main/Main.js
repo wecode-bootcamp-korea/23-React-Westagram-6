@@ -1,11 +1,54 @@
+// ### Mission 3) Main | 댓글 기능
+
+// - 사용자가 댓글 입력 후 enter 를 누르거나 왼쪽의 버튼 클릭 시 댓글이 추가되도록 구현해주세요.
+// - 댓글 기능을 구현하기 위해서는 배열 데이터 타입을 활용해야 합니다.
+// - [Array.map](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map) 참고해서 시도해주세요.
+// - 위 순서대로 완료 후 `Add : Mission 3 - 댓글 기능 구현` commit message를 남긴 후 push 해주세요.
+
 import React, { useState } from 'react';
 import './Main.scss';
 import { withRouter } from 'react-router-dom';
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      comment: '',
+      replies: [],
+    };
+  }
+
+  // 글자입력했을 시에 변하는 것 && input에 onChange로 연결 시킬 것!
+  handleCommentChange = e => {
+    this.setState({ comment: e.target.value });
+  };
+
+  // input에 enter눌렀을 시에 반응 하는 것 && input에 onKeyUp이랑 연결시킬 것!
+  handleKeyEvent = e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      this.handleOnSubmit(); //spread로 확장할 계획
+    }
+  };
+
+  // button 을 눌렀을 시 실행되는 function
+  handleOnSubmit = e => {
+    this.setState({
+      comment: '',
+      replies: [
+        ...this.state.replies,
+        {
+          userId: 'LovelyDays',
+          comment: this.state.comment,
+        },
+      ],
+    });
+  };
+
   goToLogin = () => {
     this.props.history.push('/');
   };
+
   render() {
     return (
       <div className="Main">
@@ -172,16 +215,45 @@ class Main extends React.Component {
                       </p>
                       <div>
                         <p className="postDescription">
-                          <span>
-                            <strong>moonsil</strong>
-                          </span>
-                          <span> 귀염댕이 멍멍둥이</span>
+                          <ul>
+                            <li>
+                              <strong>moonsil</strong>
+                            </li>
+                            <li style={{ paddingLeft: '10px' }}>
+                              {' '}
+                              귀염댕이 멍멍둥이
+                            </li>
+                          </ul>
                         </p>
                         <div className="wrappingCommentContainer">
                           <p className="commentContainer">
-                            <strong>jiwony</strong>
-                            <span className="content">댕댕이는 사랑이죠</span>
+                            <ul>
+                              <li>
+                                <strong>jiwony</strong>
+                              </li>
+                              <li style={{ paddingLeft: '10px' }}>
+                                댕댕이는 사랑이죠
+                              </li>
+                            </ul>
                           </p>
+                          <div className="comment-list">
+                            <ul>
+                              {this.state.replies.map((element, index) => (
+                                <li key={index}>
+                                  <div class="newReplies">
+                                    <div class="inputId">{element.userId}</div>
+                                    <div
+                                      style={{
+                                        paddingLeft: '10px',
+                                      }}
+                                    >
+                                      {element.comment}
+                                    </div>
+                                  </div>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </div>
                       </div>
                       <p className="uploadTime">10분 전</p>
@@ -189,11 +261,20 @@ class Main extends React.Component {
                     <div className="replyingCommentsBox">
                       <div className="commentsSpace">
                         <input
+                          onChange={this.handleCommentChange}
+                          onKeyUp={this.handleKeyEvent}
+                          value={this.state.comment}
                           id="commentInput"
                           type="text"
                           placeholder="댓글 달기..."
                         />
-                        <button id="submitButton">게시</button>
+                        <button
+                          type="submit"
+                          onClick={this.handleOnSubmit}
+                          id="submitButton"
+                        >
+                          게시
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -215,6 +296,7 @@ class Main extends React.Component {
                       <p>mooninthesky</p>
                       <p>황문실</p>
                     </div>
+                    []
                   </div>
 
                   <div className="suggestionForYou">

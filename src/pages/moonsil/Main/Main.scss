@@ -171,8 +171,7 @@ body {
             }
           }
           .storyBox {
-            padding: 0 10px;
-            height: 100px;
+            padding: 0 20px;
             margin-bottom: 10px;
             border-top: solid 1px #dbdbdb;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
@@ -182,6 +181,15 @@ body {
             .countingViews {
               margin: 10px 0;
               font-weight: 600;
+            }
+
+            .postDescription ul,
+            .commentContainer ul {
+              display: flex;
+            }
+
+            .newReplies {
+              display: flex;
             }
 
             .uploadTime {
